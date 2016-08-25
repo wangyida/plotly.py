@@ -35,10 +35,7 @@ for version in ${PLOTLY_PYTHON_VERSIONS[@]}; do
     pip install -r ${PLOTLY_CORE_REQUIREMENTS_FILE} ||
         error_exit "${SIG} ${LINENO}: can't install core reqs for Python ${version}."
 
+    # install optional (including test) requirements
     pip install -r ${PLOTLY_OPTIONAL_REQUIREMENTS_FILE} ||
         error_exit "${SIG} ${LINENO}: can't install optional for Python ${version}."
-
-    # install some test tools
-    pip install nose coverage ||
-        error_exit "${SIG} ${LINENO}: can't install test tools for Python ${version}."
 done

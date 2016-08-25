@@ -31,7 +31,6 @@ for version in ${PLOTLY_PYTHON_VERSIONS[@]}; do
     echo "${SIG} Running: python -c 'import sys; print(sys.version)'. We've got:"
     python -c 'import sys; print(sys.version)'
 
-
     echo "${SIG} Install plotly (ignoring possibly cached versions)."
     pip install -I ${PLOTLY_PACKAGE_ROOT} >/dev/null ||
         error_exit "${SIG} ${LINENO}: can't install plotly package from project root"
