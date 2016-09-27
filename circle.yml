@@ -7,6 +7,10 @@ machine:
     PLOTLY_PYTHON_VERSIONS: 2.7.8 3.3.3 3.4.1
     PLOTLY_CORE_REQUIREMENTS_FILE: ${PLOTLY_PACKAGE_ROOT}/requirements.txt
     PLOTLY_OPTIONAL_REQUIREMENTS_FILE: ${PLOTLY_PACKAGE_ROOT}/optional-requirements.txt
+    PLOTLY_JUPYTER_TEST_DIR: ${PLOTLY_PACKAGE_ROOT}/plotly/tests/test_core/test_jupyter
+
+  node:
+    version: 4.2.1
 
 dependencies:
 
@@ -21,6 +25,9 @@ dependencies:
 
     # we need to cd out of the project root to ensure the install worked
     - cd ~ && python -c "import plotly"
+
+    # install jupyter test JS requirements
+    - cd ${PLOTLY_JUPYTER_TEST_DIR} && npm i
 
   cache_directories:
 
